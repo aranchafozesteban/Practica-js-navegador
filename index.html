@@ -26,12 +26,12 @@
     <section>
         <h2>Añadir nueva transacción</h2>
         <hr>
-        <form novalidate>
+        <form id ='transactionForm' novalidate>
             <h3>Concepto</h3>
-            <input type="text" placeholder="Añade concepto...">
+            <input id='concept' type="text" placeholder="Añade concepto...">
             <h3>Cantidad (negativo - gasto, positivo - ingreso)</h3>
-            <input type="number" placeholder="Introduce cantidad...">
-            <button type="submit" onclick="buttonClicked()">Añadir transacción</button>
+            <input id='quantity' type="number" placeholder="Introduce cantidad...">
+            <button id='createTransaction' type="submit" onclick="buttonClicked()">Añadir transacción</button>
         </form>
     </section>
     <script src="./index.js"></script>
