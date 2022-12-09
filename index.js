@@ -20,7 +20,8 @@ transactionFormElement.addEventListener("submit", async (event) => {
     
     // Llamar a la función que muestra los inputs en el historial
     showList(transaction);
-    sendToGastoIngreso(transaction);
+    addQuantities();
+    //sendToGastoIngreso(transaction);
 
     // vaciamos los datos para poder hacer más transacciones
     inputConcept.value = "";
@@ -28,6 +29,47 @@ transactionFormElement.addEventListener("submit", async (event) => {
     
     
   });
+
+  function addQuantities(){
+    const inputQuantity = document.querySelector("#quantity");
+    let stringQuantity = inputQuantity.value;
+    let realQuantity =parseFloat(stringQuantity);
+    console.log(realQuantity);
+
+    let gastosArray = []
+    let ingresosArray =[]
+    if(realQuantity<0){
+      gastosArray.push(realQuantity)
+    }else{
+      ingresosArray.push(realQuantity)
+    }
+    
+    console.log(gastosArray)
+    console.log(ingresosArray)
+    //hacer que se sume
+    let sumaIngreso = 0
+    for(var i = 0; i <= ingresosArray.length; i++){
+      ingresoIndice = ingresosArray[i];
+      sumaIngreso += ingresoIndice;
+    }
+    // mostrar en cosola ingresos
+    const getIngreso = document.querySelector("#getIngreso");
+    const ingresosP = document.createElement("p");
+    ingresosP.classList.add('ingreso');
+
+    // la suma entre corchetes bonitos!!!!
+    let ingreso = `
+        <p>${sumaIngreso}</p>
+
+    `;
+
+    ingresosP.innerHTML = ingreso;
+    getIngreso.appendChild(ingresosP);
+
+
+  }
+
+
 
   // Creamos la función que añada los datos del input al historial
   function showList(transaction) {
@@ -48,26 +90,33 @@ transactionFormElement.addEventListener("submit", async (event) => {
 // PASANDO LOS DATOS DEL HISTORIAL A GASTOS O INGRESOS
 
 function sendToGastoIngreso(transaction){
-    const historialList = document.querySelector('#historial');
+    const historialList = document.querySelector('#list');
 
     let ingreso = document.querySelector('#ingreso');
-    let stringingreso = 0
+    let stringingreso = ingreso.value
     let realingreso =parseFloat(stringingreso)
     let gasto = document.querySelector('#gasto');
-    let stringgasto = 0
+    let stringgasto = gasto.value
     let realgasto =parseFloat(stringgasto)
     let amount = document.querySelector("#quantity");
     let stringamount = amount.value
     let realamount = parseFloat(stringamount);
     console.log(realamount)
+
+    index = 0
     //Suma pero no tods los elementos del historial entre ellos 
+    while (index < listElements.length){
         if(realamount<0){
             realgasto =  realgasto + realamount
-            console.log(realgasto)
+            index++;
+            
         }
         else{
             realingreso = realingreso + realamount
-            console.log(realingreso)
+            index++;
         }
-}
+        console.log(realgasto)
+        console.log(realingreso)
+}}
+
 

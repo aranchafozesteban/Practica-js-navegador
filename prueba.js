@@ -118,6 +118,7 @@ function addtransaction(transaction) {
     let realamount = parseFloat(stringamount);
     console.log(realamount)
     //
+   
     if(realamount<0){
         realgasto =  realgasto + realamount
         console.log(realgasto)
