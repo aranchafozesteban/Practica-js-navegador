@@ -10,18 +10,20 @@
     <h1>Control de gastos</h1>
     <section>
         <h2>TU AHORRO</h2>
-        <!--FALTA PONER LA CANTIDAD-->
+        <p id="ahorro">0$</p>
     </section>
     <section>
-        <h3>Ingreso</h3>
-        <!--falta la cantidad-->
-        <h3>Gasto</h3>
-        <!--falta la cantidad-->
+        <h3 id ='getIngreso'>Ingreso</h3>
+        <p id="gasto">0$</p>
+        <h3 id="getGasto">Gasto</h3>
+        <p id="ingreso">0$</p>
+        
     </section>
-    <section>
+    <section id="historial">
         <h2>Historial</h2>
         <hr>
-        <!--falta meter una lista con js-->
+        <ul id ='list'></ul>
+        
     </section>
     <section>
         <h2>Añadir nueva transacción</h2>
@@ -30,8 +32,8 @@
             <h3>Concepto</h3>
             <input id='concept' type="text" placeholder="Añade concepto...">
             <h3>Cantidad (negativo - gasto, positivo - ingreso)</h3>
-            <input id='quantity' type="number" placeholder="Introduce cantidad...">
-            <button id='createTransaction' type="submit" onclick="buttonClicked()">Añadir transacción</button>
+            <input id='quantity' required step='any' type="number" placeholder="Introduce cantidad...">
+            <button id='createTransaction' type="submit">Añadir transacción</button>
         </form>
     </section>
     <script src="./index.js"></script>
