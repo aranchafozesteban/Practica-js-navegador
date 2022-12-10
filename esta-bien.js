@@ -49,14 +49,16 @@ transactionFormElement.addEventListener("submit", async (event) => {
 
   }
 
-  // función eliminar transacción del historial -- hay que poner borrar del array quantity
+  // función eliminar transacción del historial 
   function deleteTransaction(transactionId){
     console.log(transactionId)
     const removeConfirmation = window.confirm("¿Estás seguro de borrar la transacción?");
 
     const transactionElement = document.getElementById(transactionId);
     transactionElement.remove();
-    
+    // borrar quantity en array de la transacción borrada
+    quantityArray.splice(transactionId,1)
+    console.log(quantityArray)
   }
 
 
