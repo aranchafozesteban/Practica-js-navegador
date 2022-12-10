@@ -41,8 +41,8 @@ transactionFormElement.addEventListener("submit", async (event) => {
         <p>${transaction.concept}: ${transaction.quantity}€</p>
         <button onclick='deleteTransaction(${transaction.id})'>✘</button>
     `;
-    // añadir quantity al array
-    quantityArray.push(transaction.quantity);
+    // añadir quantity al array y que sea un número
+    quantityArray.push(parseFloat(transaction.quantity));
     console.log(quantityArray)
     listElement.innerHTML = gastoIngreso;
     listElements.appendChild(listElement);
@@ -56,11 +56,12 @@ transactionFormElement.addEventListener("submit", async (event) => {
 
     const transactionElement = document.getElementById(transactionId);
     transactionElement.remove();
+    
   }
 
 
 // función sumar elementos del array y mostrarlo
-function sumArrayElements()
+
 
 // PASANDO LOS DATOS DEL HISTORIAL A GASTOS O INGRESOS
 

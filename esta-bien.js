@@ -41,19 +41,23 @@ transactionFormElement.addEventListener("submit", async (event) => {
         <p>${transaction.concept}: ${transaction.quantity}€</p>
         <button onclick='deleteTransaction(${transaction.id})'>✘</button>
     `;
+    // añadir quantity al array y que sea un número
+    quantityArray.push(parseFloat(transaction.quantity));
+    console.log(quantityArray)
     listElement.innerHTML = gastoIngreso;
     listElements.appendChild(listElement);
 
   }
 
-  // función eliminar transacción del historial
+  // función eliminar transacción del historial -- hay que poner borrar del array quantity
   function deleteTransaction(transactionId){
     console.log(transactionId)
     const removeConfirmation = window.confirm("¿Estás seguro de borrar la transacción?");
 
     const transactionElement = document.getElementById(transactionId);
     transactionElement.remove();
+    
   }
 
 
-// almacenando las cantidades del historial en una array 
+// función sumar elementos del array y mostrarlo
