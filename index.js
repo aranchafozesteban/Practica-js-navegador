@@ -19,6 +19,8 @@ transactionFormElement.addEventListener("submit", async (event) => {
     
     // Llamar a la función que muestra los inputs en el historial
     showList(transaction);
+
+ 
     //addQuantities();
     //sendToGastoIngreso(transaction);
 
@@ -47,6 +49,50 @@ transactionFormElement.addEventListener("submit", async (event) => {
     listElement.innerHTML = gastoIngreso;
     listElements.appendChild(listElement);
 
+     // hacer que se sumen los ingresos 
+     let sumaIngresos =0
+     let sumaGastos = 0
+ 
+     const ingresos = quantityArray.filter((valor)=> valor > 0)
+     const gastos = quantityArray.filter((valor)=> valor < 0)
+ 
+     for (let i = 0; i < ingresos.length; i++) {
+       sumaIngresos += ingresos[i]
+     }
+ 
+     for (let i = 0; i < gastos.length; i++) {
+       sumaGastos += gastos[i]
+     }
+      // mostrar en cosola ingresos
+       const getIngreso = document.querySelector("#getIngreso");
+       const ingresosP = document.createElement("p");
+       ingresosP.classList.add('ingreso');
+ 
+       //la suma entre corchetes bonitos!!!!
+       let ingreso = `
+           <p>${sumaIngresos}€</p>
+ 
+       `;
+ 
+       ingresosP.innerHTML = ingreso;
+       getIngreso.appendChild(ingresosP);
+       console.log(sumaIngresos)
+      
+        // mostrar en cosola gastos
+        const getGasto = document.querySelector("#getGasto");
+        const gastosP = document.createElement("p");
+        gastosP.classList.add('gasto');
+  
+        //la suma entre corchetes bonitos!!!!
+        let gasto = `
+            <p>${sumaGastos}€</p>
+  
+        `;
+  
+        gastosP.innerHTML = gasto;
+        getGasto.appendChild(gastosP);
+        console.log(sumaGastos)
+   
   }
 
   // función eliminar transacción del historial 
@@ -59,81 +105,43 @@ transactionFormElement.addEventListener("submit", async (event) => {
     // borrar quantity en array de la transacción borrada
     quantityArray.splice(transactionId,1)
     console.log(quantityArray)
+   
   }
 
-
-// función sumar elementos del array y mostrarlo
 
 
 // PASANDO LOS DATOS DEL HISTORIAL A GASTOS O INGRESOS
 
 
+ //hacer que se sume- está mal
+ let sumaIngreso = 0
+ let sumaGasto = 0
+ position = 0
+ for(var i = 0; i < quantityArray.length; i++){
+   if(quantityArray[i]>0){
+    sumaIngreso += quantityArray[i];
+   }else{
+    sumaGasto += quantityArray[i]
+   }
+   
+ }
+ 
+ // mostrar en cosola ingresos
+ const getIngreso = document.querySelector("#getIngreso");
+ const ingresosP = document.createElement("p");
+ ingresosP.classList.add('ingreso');
 
-function sendToGastoIngreso(transaction){
-    const historialList = document.querySelector('#list');
+ //la suma entre corchetes bonitos!!!!
+ let ingreso = `
+     <p>${sumaIngreso}</p>
 
-    let ingreso = document.querySelector('#ingreso');
-    let stringingreso = ingreso.value
-    let realingreso =parseFloat(stringingreso)
-    let gasto = document.querySelector('#gasto');
-    let stringgasto = gasto.value
-    let realgasto =parseFloat(stringgasto)
-    let amount = document.querySelector("#quantity");
-    let stringamount = amount.value
-    let realamount = parseFloat(stringamount);
-    console.log(realamount)
+ `;
 
-    index = 0
-    //Suma pero no tods los elementos del historial entre ellos 
-    while (index < listElements.length){
-        if(realamount<0){
-            realgasto =  realgasto + realamount
-            index++;
-            
-        }
-        else{
-            realingreso = realingreso + realamount
-            index++;
-        }
-        console.log(realgasto)
-        console.log(realingreso)
-}}
+ ingresosP.innerHTML = ingreso;
+ getIngreso.appendChild(ingresosP);
 
-function addQuantities(){
-  const inputQuantity = document.querySelector("#quantity");
-  let stringQuantity = inputQuantity.value;
-  let realQuantity =parseFloat(stringQuantity);
-  console.log(realQuantity);
 
-  let gastosArray = []
-  let ingresosArray =[]
-  if(realQuantity<0){
-    gastosArray.push(realQuantity)
-  }else{
-    ingresosArray.push(realQuantity)
-  }
-  
-  console.log(gastosArray)
-  console.log(ingresosArray)
-  //hacer que se sume
-  let sumaIngreso = 0
-  for(var i = 0; i <= ingresosArray.length; i++){
-    ingresoIndice = ingresosArray[i];
-    sumaIngreso += ingresoIndice;
-  }
-  // mostrar en cosola ingresos
-  const getIngreso = document.querySelector("#getIngreso");
-  const ingresosP = document.createElement("p");
-  ingresosP.classList.add('ingreso');
 
-  //la suma entre corchetes bonitos!!!!
-  let ingreso = `
-      <p>${sumaIngreso}</p>
-
-  `;
-
-  ingresosP.innerHTML = ingreso;
-  getIngreso.appendChild(ingresosP);
-  }
+ 
 
 

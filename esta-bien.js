@@ -19,6 +19,8 @@ transactionFormElement.addEventListener("submit", async (event) => {
     
     // Llamar a la función que muestra los inputs en el historial
     showList(transaction);
+
+ 
     //addQuantities();
     //sendToGastoIngreso(transaction);
 
@@ -47,6 +49,30 @@ transactionFormElement.addEventListener("submit", async (event) => {
     listElement.innerHTML = gastoIngreso;
     listElements.appendChild(listElement);
 
+    // hacer que se sumen los ingresos 
+    let sumaIngresos =0
+    let sumaGastos = 0
+
+    const ingresos = quantityArray.filter((valor)=> valor > 0)
+    const gastos = quantityArray.filter((valor)=> valor < 0)
+
+    for (let i = 0; i < ingresos.length; i++) {
+      sumaIngresos += ingresos[i]
+    }
+     // mostrar en cosola ingresos
+      const getIngreso = document.querySelector("#getIngreso");
+      const ingresosP = document.createElement("p");
+      ingresosP.classList.add('ingreso');
+
+      //la suma entre corchetes bonitos!!!!
+      let ingreso = `
+          <p>${sumaIngresos}€</p>
+
+      `;
+
+      ingresosP.innerHTML = ingreso;
+      getIngreso.appendChild(ingresosP);
+      console.log(sumaIngresos)
   }
 
   // función eliminar transacción del historial 
@@ -59,7 +85,6 @@ transactionFormElement.addEventListener("submit", async (event) => {
     // borrar quantity en array de la transacción borrada
     quantityArray.splice(transactionId,1)
     console.log(quantityArray)
+   
   }
 
-
-// función sumar elementos del array y mostrarlo

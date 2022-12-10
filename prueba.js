@@ -152,3 +152,99 @@ function sendToGastoIngreso(transaction){
         console.log(realingreso)
     }
 }
+
+
+
+
+//UTIL HECHO POR MI
+// función sumar elementos del array y mostrarlo
+let index = 0
+let position = 0
+let ingresosSum =0 
+let gastosSum= 0
+function sumArray(ingresosSum, gastosSum){
+  while(index<quantityArray.length){
+    if(quantityArray[position]<0){
+      gastosSum += quantityArray[position];
+      index++;
+      position++;
+    }else{
+      ingresosSum += quantityArray[position];
+      index++;
+      position++;
+  
+    }
+  }
+  console.log(ingresosSum)
+  console.log(gastosSum)
+}
+
+
+// por aqui en sucio
+function sendToGastoIngreso(transaction){
+  const historialList = document.querySelector('#list');
+
+  let ingreso = document.querySelector('#ingreso');
+  let stringingreso = ingreso.value
+  let realingreso =parseFloat(stringingreso)
+  let gasto = document.querySelector('#gasto');
+  let stringgasto = gasto.value
+  let realgasto =parseFloat(stringgasto)
+  let amount = document.querySelector("#quantity");
+  let stringamount = amount.value
+  let realamount = parseFloat(stringamount);
+  console.log(realamount)
+
+  index = 0
+  //Suma pero no tods los elementos del historial entre ellos 
+  while (index < quantityArray.length){
+      if(quantityArray[position]<0){
+          realgasto =  realgasto + quantityArray[position]
+          index++;
+          
+      }
+      else{
+          realingreso = realingreso + quantityArray[position]
+          index++;
+      }
+      console.log(realgasto)
+      console.log(realingreso)
+}}
+
+function addQuantities(){
+const inputQuantity = document.querySelector("#quantity");
+let stringQuantity = inputQuantity.value;
+let realQuantity =parseFloat(stringQuantity);
+console.log(realQuantity);
+
+let gastosArray = []
+let ingresosArray =[]
+if(realQuantity<0){
+  gastosArray.push(realQuantity)
+}else{
+  ingresosArray.push(realQuantity)
+}
+
+console.log(gastosArray)
+console.log(ingresosArray)
+//hacer que se sume
+let sumaIngreso = 0
+for(var i = 0; i <= ingresosArray.length; i++){
+  
+  ingresoIndice = ingresosArray[i];
+  sumaIngreso += ingresoIndice;
+}
+// mostrar en cosola ingresos
+const getIngreso = document.querySelector("#getIngreso");
+const ingresosP = document.createElement("p");
+ingresosP.classList.add('ingreso');
+
+//la suma entre corchetes bonitos!!!!
+let ingreso = `
+    <p>${sumaIngreso}</p>
+
+`;
+
+ingresosP.innerHTML = ingreso;
+getIngreso.appendChild(ingresosP);
+}
