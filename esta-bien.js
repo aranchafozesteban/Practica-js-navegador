@@ -49,30 +49,50 @@ transactionFormElement.addEventListener("submit", async (event) => {
     listElement.innerHTML = gastoIngreso;
     listElements.appendChild(listElement);
 
-    // hacer que se sumen los ingresos 
-    let sumaIngresos =0
-    let sumaGastos = 0
-
-    const ingresos = quantityArray.filter((valor)=> valor > 0)
-    const gastos = quantityArray.filter((valor)=> valor < 0)
-
-    for (let i = 0; i < ingresos.length; i++) {
-      sumaIngresos += ingresos[i]
-    }
-     // mostrar en cosola ingresos
-      const getIngreso = document.querySelector("#getIngreso");
-      const ingresosP = document.createElement("p");
-      ingresosP.classList.add('ingreso');
-
-      //la suma entre corchetes bonitos!!!!
-      let ingreso = `
-          <p>${sumaIngresos}€</p>
-
-      `;
-
-      ingresosP.innerHTML = ingreso;
-      getIngreso.appendChild(ingresosP);
-      console.log(sumaIngresos)
+     // hacer que se sumen los ingresos 
+     let sumaIngresos =0
+     let sumaGastos = 0
+ 
+     const ingresos = quantityArray.filter((valor)=> valor > 0)
+     const gastos = quantityArray.filter((valor)=> valor < 0)
+ 
+     for (let i = 0; i < ingresos.length; i++) {
+       sumaIngresos += ingresos[i]
+     }
+ 
+     for (let i = 0; i < gastos.length; i++) {
+       sumaGastos += gastos[i]
+     }
+      // mostrar en cosola ingresos
+       const getIngreso = document.querySelector("#getIngreso");
+       const ingresosP = document.createElement("p");
+       ingresosP.classList.add('ingreso');
+ 
+       //la suma entre corchetes bonitos!!!!
+       let ingreso = `
+           <p>${sumaIngresos}€</p>
+ 
+       `;
+ 
+       ingresosP.innerHTML = ingreso;
+       getIngreso.appendChild(ingresosP);
+       console.log(sumaIngresos)
+      
+        // mostrar en cosola gastos
+        const getGasto = document.querySelector("#getGasto");
+        const gastosP = document.createElement("p");
+        gastosP.classList.add('gasto');
+  
+        //la suma entre corchetes bonitos!!!!
+        let gasto = `
+            <p>${sumaGastos}€</p>
+  
+        `;
+  
+        gastosP.innerHTML = gasto;
+        getGasto.appendChild(gastosP);
+        console.log(sumaGastos)
+   
   }
 
   // función eliminar transacción del historial 

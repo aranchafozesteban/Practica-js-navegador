@@ -64,9 +64,9 @@ transactionFormElement.addEventListener("submit", async (event) => {
        sumaGastos += gastos[i]
      }
       // mostrar en cosola ingresos
-       const getIngreso = document.querySelector("#getIngreso");
-       const ingresosP = document.createElement("p");
-       ingresosP.classList.add('ingreso');
+       const getIngreso = document.querySelector("#ingreso");
+       //const ingresosP = document.createElement("p");
+       //ingresosP.classList.add('ingreso');
  
        //la suma entre corchetes bonitos!!!!
        let ingreso = `
@@ -74,14 +74,14 @@ transactionFormElement.addEventListener("submit", async (event) => {
  
        `;
  
-       ingresosP.innerHTML = ingreso;
-       getIngreso.appendChild(ingresosP);
+       getIngreso.innerHTML = ingreso;
+       //getIngreso.appendChild(ingresosP);
        console.log(sumaIngresos)
       
         // mostrar en cosola gastos
-        const getGasto = document.querySelector("#getGasto");
-        const gastosP = document.createElement("p");
-        gastosP.classList.add('gasto');
+        const getGasto = document.querySelector("#gasto");
+        //const gastosP = document.createElement("p");
+        //gastosP.classList.add('gasto');
   
         //la suma entre corchetes bonitos!!!!
         let gasto = `
@@ -89,8 +89,7 @@ transactionFormElement.addEventListener("submit", async (event) => {
   
         `;
   
-        gastosP.innerHTML = gasto;
-        getGasto.appendChild(gastosP);
+        getGasto.innerHTML = gasto;
         console.log(sumaGastos)
    
   }
@@ -110,35 +109,7 @@ transactionFormElement.addEventListener("submit", async (event) => {
 
 
 
-// PASANDO LOS DATOS DEL HISTORIAL A GASTOS O INGRESOS
 
-
- //hacer que se sume- está mal
- let sumaIngreso = 0
- let sumaGasto = 0
- position = 0
- for(var i = 0; i < quantityArray.length; i++){
-   if(quantityArray[i]>0){
-    sumaIngreso += quantityArray[i];
-   }else{
-    sumaGasto += quantityArray[i]
-   }
-   
- }
- 
- // mostrar en cosola ingresos
- const getIngreso = document.querySelector("#getIngreso");
- const ingresosP = document.createElement("p");
- ingresosP.classList.add('ingreso');
-
- //la suma entre corchetes bonitos!!!!
- let ingreso = `
-     <p>${sumaIngreso}</p>
-
- `;
-
- ingresosP.innerHTML = ingreso;
- getIngreso.appendChild(ingresosP);
 
 
 
