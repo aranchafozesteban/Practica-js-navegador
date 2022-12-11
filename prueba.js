@@ -248,3 +248,33 @@ let ingreso = `
 ingresosP.innerHTML = ingreso;
 getIngreso.appendChild(ingresosP);
 }
+
+
+
+const gastosTotales = document.querySelector("#gasto");
+console.log(gastosTotales)
+const ingresosTotales = document.querySelector("#ingreso");
+let diferencia = sumIngresos - sumGastos
+
+const balance= document.querySelector("#ahorro");
+
+let finalBalance = `
+  <p>${diferencia}€</p>
+`;
+
+balance.innerHTML(finalBalance);
+
+function showBalance(resultado) {
+  const ingresoTotal = document.querySelector("#ingreso");
+  const gastoTotal = document.querySelector("#gasto");
+  let ahorros = document.querySelector('#ahorros')
+  const ahorroTotal = document.createElement("p");
+  ahorros.setAttribute("id", resultado)
+
+  let gastoIngreso = `
+      <p>${ingresoTotal-gastoTotal}€</p>
+  `;
+  ahorros.innerHTML = gastoIngreso;
+  ahorroTotal.appendChild(ahorros);
+
+}
