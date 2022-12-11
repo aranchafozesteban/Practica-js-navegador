@@ -5,35 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Control gastos</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./styles.css">
 </head>
-<body>
-    <h1>Control de gastos</h1>
-    <section>
-        <h2>TU AHORRO</h2>
-        <p id="ahorro">0$</p>
+<body class='body'>
+    <h1 class='title'>Control de gastos</h1>
+    <section class = 'section1'>
+        <h2 class='tuAhorro'>TU AHORRO</h2>
+        <p class='ahorro' id="ahorro">0€</p>
     </section>
-    <section>
-        <h3 id ='getIngreso'>Ingreso</h3>
-        <p id="ingreso">0$</p>
-        <h3 id="getGasto">Gasto</h3>
-        <p id="gasto">0$</p>
+    <section class='section2'>
+        <div class='ingresoDiv'>
+            <h3 class='titulo2' id ='getIngreso'>Ingreso</h3>
+            <p class ='ingreso' id="ingreso">0€</p>
+        </div>
+        <div class='gastoDiv'>
+            <h3 class= 'titulo2' id="getGasto">Gasto</h3>
+            <p class = 'gasto' id="gasto">0€</p>
+        </div>
         
     </section>
-    <section id="historial">
-        <h2>Historial</h2>
-        <hr>
+    <section class='section3' id="historial">
+        <h2 class='historial'>Historial</h2>
+        <hr class='linea'>
         <ul id ='list'></ul>
         
     </section>
-    <section>
-        <h2>Añadir nueva transacción</h2>
+    <section class='section4'>
+        <h2 class='transaccion'>Añadir nueva transacción</h2>
         <hr>
         <form id ='transactionForm' novalidate>
-            <h3>Concepto</h3>
-            <input id='concept' type="text" placeholder="Añade concepto...">
-            <h3>Cantidad (negativo - gasto, positivo - ingreso)</h3>
-            <input id='quantity' required step='any' type="number" placeholder="Introduce cantidad...">
-            <button id='createTransaction' type="submit">Añadir transacción</button>
+            <h3 class='enunciado'>Concepto</h3>
+            <input  class ='input' id='concept' type="text" placeholder="Añade concepto...">
+            <h3 class ='enunciado'>Cantidad (negativo - gasto, positivo - ingreso)</h3>
+            <input class='input' id='quantity' required step='any' type="number" placeholder="Introduce cantidad...">
+            <button class='button' id='createTransaction' type="submit">Añadir transacción</button>
         </form>
     </section>
     <script src="./index.js"></script>

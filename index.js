@@ -36,6 +36,7 @@ transactionFormElement.addEventListener("submit", async (event) => {
 
     const listElement = document.createElement("article");
     listElement.setAttribute("id", transaction.id)
+    listElement.classList.add('listas')
 
     let gastoIngreso = `
         <p>${transaction.concept}: ${transaction.quantity}€</p>
@@ -90,7 +91,7 @@ transactionFormElement.addEventListener("submit", async (event) => {
           balance += quantityArray[i]
         }
         let results = `
-          <p>${balance}</p>
+          <p>${balance}€</p>
         `;
 
         tusAhorros.innerHTML = results;
