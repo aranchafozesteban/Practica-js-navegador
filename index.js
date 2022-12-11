@@ -22,10 +22,6 @@ transactionFormElement.addEventListener("submit", async (event) => {
     showList(transaction);
 
 
- 
-    //addQuantities();
-    //sendToGastoIngreso(transaction);
-
 
     // vaciamos los datos para poder hacer más transacciones
     inputConcept.value = "";
@@ -161,7 +157,7 @@ transactionFormElement.addEventListener("submit", async (event) => {
           balance += quantityArray[i]
         }
         let results = `
-          <p>${balance}</p>
+          <p>${balance}€</p>
         `;
 
         tusAhorros.innerHTML = results;
